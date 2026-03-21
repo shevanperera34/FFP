@@ -78,6 +78,7 @@ const uiFont = '"Germania One", serif';
 const titleFont = '"Grenze", serif';
 const servicesHeadingFont = '"Grenze SemiBold", serif';
 const contentMaxWidth = 1180;
+const publicAsset = (fileName: string) => `${import.meta.env.BASE_URL}${fileName}`;
 const unifiedHoverTransition = "transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease, opacity 0.22s ease";
 const unifiedDarkButtonHover: React.CSSProperties = {
   transform: "translateY(-1px)",
@@ -716,7 +717,7 @@ function ServicesSelector({
         borderRadius: fullPage ? 0 : 24,
         border: fullPage ? "none" : "1px solid rgba(255,255,255,0.12)",
         background: fullPage
-          ? `url(${mossBackground}), url(/hero-bg.png)`
+          ? `url(${mossBackground}), url(${publicAsset("hero-bg.png")})`
           : "linear-gradient(165deg, rgba(8,13,14,0.66), rgba(6,10,11,0.82))",
         backgroundSize: fullPage ? "cover, 120% auto" : undefined,
         backgroundPosition: fullPage ? "center center, center top" : undefined,
@@ -3053,7 +3054,7 @@ export default function FFPBuilderStyleMock() {
           ? "none"
           : `radial-gradient(1100px 650px at 30% 0%, rgba(211,74,168,0.18), transparent 62%),
              radial-gradient(900px 520px at 90% 12%, rgba(237,230,247,0.12), transparent 60%),
-             url(/hero-bg.png)`,
+             url(${publicAsset("hero-bg.png")})`,
         backgroundSize: isServicesPage ? undefined : "cover",
         backgroundPosition: isServicesPage ? undefined : "center",
         backgroundRepeat: isServicesPage ? undefined : "no-repeat",
@@ -3116,7 +3117,7 @@ export default function FFPBuilderStyleMock() {
               ariaLabel="Go to home"
             >
               <img
-                src="/logo.png"
+                src={publicAsset("logo.png")}
                 alt=""
                 style={{
                   height:50,
@@ -3256,7 +3257,7 @@ export default function FFPBuilderStyleMock() {
                 }}
               >
                 <img
-                  src="/logo.png"
+                  src={publicAsset("logo.png")}
                   alt="Fable Face Paint"
                   style={{
                     width: "100%",
